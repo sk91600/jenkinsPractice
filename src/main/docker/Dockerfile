@@ -11,6 +11,6 @@ ADD *.jar app.jar
 # 对外暴漏的端口号
 EXPOSE 9100
 # 运行
-ENTRYPOINT ["/app.sh"]
-#ENTRYPOINT ["java", "-jar", "app.jar"]
+#ENTRYPOINT ["/app.sh"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
 

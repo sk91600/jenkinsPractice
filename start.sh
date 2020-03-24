@@ -9,12 +9,12 @@ then
 elif [ -n "$word" ];
 then
     echo "当前已存在容器，停止并移除该容器-------------------------------------"
-    /usr/bin/docker stop "$word"
-    /usr/bin/docker rm "$word"
+    docker stop "$word"
+    docker rm "$word"
 elif [ "$word" == "1" ];
 then
     echo "查询的信息有误，执行默认操作-------------------------------------"
-    /usr/bin/docker stop "$word"
-    /usr/bin/docker rm "$word"
+    docker stop "$word"
+    docker rm "$word"
 fi
 docker run -p 8010:8010 -d --name "$appName" "$appName":latest

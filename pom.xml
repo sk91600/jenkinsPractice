@@ -9,14 +9,14 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>jenkinsPractice</artifactId>
+    <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>demo</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <docker.image.prefix>leesia</docker.image.prefix>
+        <docker.image.prefix>ssr</docker.image.prefix>
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
     </properties>
 
@@ -72,19 +72,18 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!--&lt;!&ndash;指定生成的镜像名&ndash;&gt;-->
-                    <!--<imageName>jenkins/${project.artifactId}</imageName>-->
+                    <!--指定生成的镜像名-->
+                    <imageName>jenkins/${project.artifactId}</imageName>
                     <!--&lt;!&ndash; 指定 Dockerfile 路径&ndash;&gt;-->
                     <!--<dockerDirectory>${project.basedir}/</dockerDirectory>-->
 
                     <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-                    <!-- 生成的docker镜像名称  -->
-                    <imageName>${project.artifactId}</imageName>
-                    <!-- 镜像标签-->
-                    <imageTags>
-                        <!--可以指定多个标签    建议弄成自增序列或者时间戳类型，用于区分版本-->
-                        <imageTag>${maven.build.timestamp}</imageTag>
-                    </imageTags>
+                    <!--&lt;!&ndash; 生成的docker镜像名称  &ndash;&gt;-->
+                    <!--<imageName>${docker.image.prefix}/${project.artifactId}</imageName>-->
+                    <!--<imageTags>-->
+                        <!--&lt;!&ndash;可以指定多个标签    建议弄成自增序列或者时间戳类型，用于区分版本&ndash;&gt;-->
+                        <!--<imageTag>${maven.build.timestamp}</imageTag>-->
+                    <!--</imageTags>-->
                     <!--指定远程 docker api地址-->
                     <dockerHost>http://192.168.101.95:2375</dockerHost>
                     <resources>

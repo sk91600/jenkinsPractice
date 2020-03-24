@@ -1,4 +1,4 @@
-appName="ssr/demo"
+appName="demo"
 word="1"
 echo "$word"
 word=`docker ps -a -q --no-trunc --filter name=^/"$appName"$`
@@ -17,4 +17,4 @@ then
     docker stop "$word"
     docker rm "$word"
 fi
-docker run -p 8010:8010 "$appName":latest
+docker run -p 8010:8010 -d "$appName":latest --name "$appName"

@@ -17,4 +17,4 @@ then
     docker stop "$word"
     docker rm "$word"
 fi
-docker run -p 8010:8010 -d "$appName":latest --name "$appName"
+docker run --name "$appName" -p 8010:8010 -d "$appName":latest

@@ -12,5 +12,5 @@ ADD demo-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 9100
 # 运行
 #ENTRYPOINT ["/app.sh"]
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["nohup","java", "-jar", "app.jar", "&"]
 
